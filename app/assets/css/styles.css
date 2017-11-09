@@ -1,6 +1,6 @@
 /** colors **/
 @import url("https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700");
-html, body, div, span, applet, object, iframe,
+html, html body, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
@@ -43,18 +43,86 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
-body {
-  font-family: 'Ubuntu', sans-serif;
-  background-color: #fefefe;
-  font-size: 14px; }
+html, html body {
+  height: 100%; }
+  html body {
+    font-family: 'Ubuntu', sans-serif;
+    background: #F1F1F2; }
+    html body h1 {
+      font-size: 32px; }
+    html body h2 {
+      font-size: 26px; }
+    html body h3 {
+      font-size: 18px; }
+    html body p {
+      padding: 5px;
+      font-size: 14px;
+      font-weight: 300; }
+
+.finance {
+  color: #D95252;
+  padding-left: 30px;
+  font-weight: 700;
+  font-size: 24px; }
+  .finance:hover {
+    color: #F1F1F2;
+    cursor: pointer;
+    transition: all 0.3s; }
 
 .content {
   padding: 5px;
-  color: #3D3E40; }
+  color: #333; }
+
+.center-v, .content.top, .content.home {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; }
+
+.center-h {
+  text-align: center; }
+
+body {
+  background-color: #F1F1F2; }
 
 .content {
   text-align: center; }
-  .content h1 {
-    padding: 40px;
-    font-size: 38px;
-    color: #78A1BB; }
+  .content.top {
+    background: -webkit-linear-gradient(left, #694A80, #8B4B99);
+    background: linear-gradient(left, #694A80, #8B4B99);
+    color: #F1F1F2;
+    height: 80%; }
+    .content.top h1 {
+      font-size: 38px;
+      font-weight: 500; }
+    .content.top h3 {
+      padding-top: 10px;
+      font-size: 14px;
+      font-weight: 300; }
+  .content.home {
+    height: 100%;
+    background-color: #F1F1F2;
+    color: #694A80; }
+
+header {
+  top: 0;
+  position: fixed;
+  padding: 25px 0;
+  background-color: rgba(255, 255, 255, 0);
+  width: 100%; }
+  header .finance {
+    float: left; }
+  header nav {
+    padding-right: 30px;
+    float: right; }
+    header nav ul li {
+      float: left;
+      padding: 5px 15px; }
+      header nav ul li a {
+        color: #F1F1F2;
+        font-weight: 500;
+        font-size: 16px;
+        text-align: center;
+        text-decoration: none; }
+        header nav ul li a:hover {
+          color: #DB7623;
+          transition: 0.3s all; }

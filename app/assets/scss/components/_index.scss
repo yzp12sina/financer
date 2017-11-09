@@ -1,9 +1,30 @@
+body{
+	background-color: $white;
+}
 .content{
 	text-align: center;
+	&.top{
+		@extend .center-v;
+		background: -webkit-linear-gradient(left,#694A80,#8B4B99);
+		background: linear-gradient(left,#694A80,#8B4B99);
+		color: $white;
+		height: 80%;
 
-	h1{
-		padding: 40px;
-		font-size: 38px;
-		color: $blue;
+		h1{
+			font-size: 38px;
+			font-weight: 500;
+		}
+		
+		h3{
+			padding-top: 10px;
+			font-size: 14px;
+			font-weight: 300;
+		}
+	}
+	&.home{
+		@extend .center-v;
+		height: 100%;
+		background-color: $white;
+		color: $grape;
 	}
 }

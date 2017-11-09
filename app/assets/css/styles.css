@@ -1,5 +1,4 @@
 /** colors **/
-/** font colors **/
 @import url("https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700");
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -46,7 +45,7 @@ table {
 
 body {
   font-family: 'Ubuntu', sans-serif;
-  background-color: #F2E9D8;
+  background-color: #fefefe;
   font-size: 14px; }
 
 .content {
@@ -56,5 +55,6 @@ body {
 .content {
   text-align: center; }
   .content h1 {
-    padding: 10px;
-    font-size: 38px; }
+    padding: 40px;
+    font-size: 38px;
+    color: #78A1BB; }

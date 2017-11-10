@@ -18,15 +18,20 @@
 		</nav>
 	</header>
 	<div class='content top'>
-		<h1>Finance</h1>
+		<% if ( typeof name == 'undefined' ){ %>
+		   <h1>Finance</h1>
+		<% } else{ %>
+		   <h1><%= name %></h1>
+		 <% } %>
 		<h3>O melhor jeito de você controlar as suas finanças</h3>
 	</div>
 	<div class='content home'>
-		<h1>Finance = Economia</h1>
+		<h1>Finance = Economia! :D</h1>
 		<h3>Quer economizar? Crie sua conta, adicione suas receitas e despesas!</h3>
 		<p>Porque quando você planeja, você tende a gastar menos e assim aquele dinheiro que antes faltava no fim do mês, passa a sobrar e a te ajudar a comprar coisaaaaaaaas :3</p>
 	</div>
 	<!--build:js js/main.min.js -->
+	<script type="text/javascript" src="assets/js/_jquery.min.js"></script>
 		<script type="text/javascript" src="assets/js/index.js"></script>
 		<script type="text/javascript" src="assets/js/main.js"></script>
 	<!-- endbuild -->

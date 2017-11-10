@@ -5,8 +5,8 @@ body{
 	text-align: center;
 	&.top{
 		@extend .center-v;
-		background: -webkit-linear-gradient(left,#694A80,#8B4B99);
 		background: linear-gradient(left,#694A80,#8B4B99);
+		background: -webkit-linear-gradient(left,#694A80,#8B4B99);
 		color: $white;
 		height: 80%;
 
@@ -14,7 +14,7 @@ body{
 			font-size: 38px;
 			font-weight: 500;
 		}
-		
+
 		h3{
 			padding-top: 10px;
 			font-size: 14px;
@@ -26,5 +26,9 @@ body{
 		height: 100%;
 		background-color: $white;
 		color: $grape;
+
+		h1, h3{
+			padding-bottom: 10px;
+		}
 	}
 }

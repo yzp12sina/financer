@@ -5,7 +5,29 @@
 	<link rel="stylesheet" href="css/styles.min.css">
 </head>
 <body>
-	<a href="">xxxxxx</a>
+	<header>
+		<div class='finance'>finance</div>
+		<nav>
+			<ul>
+				<li><a href='#home'>Home</a></li>
+				<li><a href='#about'>O que é?</a></li>
+				<li><a href='#dev'>Dev</a></li>
+			</ul>
+		</nav>
+	</header>
+	<div class='content top'>
+		<% if ( typeof name == 'undefined' ){ %>
+		   <h1>Finance</h1>
+		<% } else{ %>
+		   <h1><%= name %></h1>
+		 <% } %>
+		<h3>O melhor jeito de você controlar as suas finanças</h3>
+	</div>
+	<div class='content home'>
+		<h1>Finance = Economia! :D</h1>
+		<h3>Quer economizar? Crie sua conta, adicione suas receitas e despesas!</h3>
+		<p>Porque quando você planeja, você tende a gastar menos e assim aquele dinheiro que antes faltava no fim do mês, passa a sobrar e a te ajudar a comprar coisaaaaaaaas :3</p>
+	</div>
 	<script src="js/main.min.js"></script>
 </body>
 </html>

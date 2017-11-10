@@ -26,7 +26,7 @@ gulp.task('scripts',function(){
 		.pipe(browserSync.reload({
 	      stream: true
 	    }))
-});	
+});
 gulp.task('images', function(){
   return gulp.src('app/assets/images/**/*.+(png|jpg|gif|svg)')
   .pipe(imagemin())
@@ -49,6 +49,12 @@ gulp.task('build', ['sass','scripts','images'], function(){
 
 gulp.task('watch', ['browserSync', 'sass','scripts'], function (){
   gulp.watch('app/assets/scss/**/*.scss', ['sass']);
-  gulp.watch('app/*.html', browserSync.reload); 
-  gulp.watch('app/assets/js/**/*.js', browserSync.reload);  
+  gulp.watch('app/*.html', browserSync.reload);
+  gulp.watch('app/assets/js/**/*.js', browserSync.reload);
+});
+
+gulp.task('default', ['browserSync', 'sass','scripts'], function (){
+  gulp.watch('app/assets/scss/**/*.scss', ['sass']);
+  gulp.watch('app/*.html', browserSync.reload);
+  gulp.watch('app/assets/js/**/*.js', browserSync.reload);
 });

@@ -3,7 +3,7 @@ body{
 }
 .content{
 	text-align: center;
-	&.top{
+	&--home{
 		@extend .center-v;
 		background: linear-gradient(left,#694A80,#8B4B99);
 		background: -webkit-linear-gradient(left,#694A80,#8B4B99);
@@ -21,7 +21,7 @@ body{
 			font-weight: 300;
 		}
 	}
-	&.home{
+	&--about{
 		@extend .center-v;
 		height: 100%;
 		background-color: $white;

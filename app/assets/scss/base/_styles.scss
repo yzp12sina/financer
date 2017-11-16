@@ -5,39 +5,10 @@ html{
 		@extend html;
 		font-family: 'Ubuntu', sans-serif;
 		background: $white;
-
-		//default elements
-		h1{
-			font-size: 32px;
-		}
-
-		h2{
-			font-size: 26px;
-		}
-
-		h3{
-			font-size: 18px;
-		}
-		p{
-			padding: 5px;
-			font-size: 14px;
-			font-weight: 300;
-		}
+		font-size: 62.5%;
 	}
 }
-//=====LOGO======
-.finance{
-	color: $jelly-bean;
-	padding-left: 30px; 
-	font-weight: 700;
-	font-size: 24px;
 
-	&:hover{
-		color: $white;
-		cursor: pointer;
-		transition: all 0.3s;
-	}
-}
 //=====content=====
 .content{
 	padding: 5px;

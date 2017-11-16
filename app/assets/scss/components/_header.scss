@@ -1,7 +1,7 @@
 header{
 	top: 0;
 	position: fixed;
-	padding: 25px 0;
+	padding: 2.5em 0;
 	background-color: rgba(255,255,255,0);
 	width: 100%;
 
@@ -10,7 +10,7 @@ header{
 	}
 
 	nav{
-		padding-right: 30px;
+		padding-right: 3em;
 		float: right;
 
 		ul li{
@@ -20,9 +20,10 @@ header{
 			a{
 				color: $white;
 				font-weight: 500;
-				font-size: 16px;
+				font-size: 1.6em;
 				text-align: center;
 				text-decoration: none;
+				@include media-query(medium-screens){color: #333;}
 
 				&:hover{
 					color: $ocre;

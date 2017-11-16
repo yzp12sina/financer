@@ -10,7 +10,8 @@ Finance permite que você:
 
 #### Pré Requisitos
 - [x] Node
-- [ ] Express (em avaliação)
+- [x] Express
+- [x] MongoDB
 - [x] Gulp
 - [x] Sass
 

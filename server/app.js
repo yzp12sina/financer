@@ -1,7 +1,8 @@
 //requires for server work, already setting at package.json file as dependencies
-var express = require('express');
-var engine = require('ejs');
-var app = express();
+const express = require('express');
+const engine = require('ejs');
+const MongoClient = require('mongodb').MongoClient
+const app = express();
 __dirname = '../';
 //to set a static content
 // app.use(express.static('../dist'));
@@ -22,7 +23,10 @@ app.get('/home', function (req, res) {
 });
 
 //start server at localhost on 3006 port
-app.listen(3006, function () {
-  console.log('Example app listening on port 3006!');
-  console.log(__dirname);
-});
+// MongoClient.connect('mongodb://<teste>:<teste>@ds259865.mlab.com:59865/financer', (err, database) => {
+//   if (err) return console.log(err)
+//   db = database
+  app.listen(3006, function () {
+    console.log('Financer is now running at port 3006...');
+  });
+// });

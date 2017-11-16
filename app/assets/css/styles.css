@@ -44,15 +44,27 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
+/** responsive**/
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+img,
+picture,
+video,
+embed {
+  max-width: 100%; }
+
 html, html body {
   height: 100%; }
   html body {
     font-family: 'Ubuntu', sans-serif;
-    background: #F1F1F2;
+    background-color: #F1F1F2;
     font-size: 62.5%; }
 
 .content {
-  padding: 5px;
+  padding: 0.5em;
   color: #333; }
 
 .center-v, .content--home, .content--about {
@@ -63,9 +75,6 @@ html, html body {
 .center-h {
   text-align: center; }
 
-body {
-  background-color: #F1F1F2; }
-
 .content {
   text-align: center; }
   .content--home {
@@ -74,7 +83,7 @@ body {
     color: #F1F1F2;
     height: 80%; }
     .content--home h1 {
-      font-size: 38px;
+      font-size: 3.8em;
       font-weight: 500;
       color: #D95252; }
     .content--home h3 {

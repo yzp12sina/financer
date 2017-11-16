@@ -1,6 +1,3 @@
-body{
-	background-color: $white;
-}
 .content{
 	text-align: center;
 	&--home{
@@ -11,7 +8,7 @@ body{
 		height: 80%;
 
 		h1{
-			font-size: 38px;
+			font-size: 3.8em;
 			font-weight: 500;
 			color: $jelly-bean;
 		}

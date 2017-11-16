@@ -4,14 +4,14 @@ html{
 	body{
 		@extend html;
 		font-family: 'Ubuntu', sans-serif;
-		background: $white;
+		background-color: $white;
 		font-size: 62.5%;
 	}
 }
 
 //=====content=====
 .content{
-	padding: 5px;
+	padding: 0.5em;
 	color: $gray-dark;
 }
 .center-v{

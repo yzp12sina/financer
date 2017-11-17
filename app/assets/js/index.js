@@ -11,7 +11,7 @@ $(window).scroll(function(){
 //menu mobile
 $('.menu_mobile--sandwich').on('click', function(){
   $(this).toggleClass("menu_mobile--sandwich--open");
-  $('header nav').toggleClass('visible');
+  $('header nav').toggleClass('open');
   // $('nav').toggleClass('navbar-open');
   // $('header').toggleClass('fixed');
 })

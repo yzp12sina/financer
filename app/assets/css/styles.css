@@ -101,7 +101,6 @@ header {
   top: 0;
   position: fixed;
   padding: 2% 0;
-  background-color: #333;
   width: 100%; }
   @media only screen and (min-width: 340px) and (max-width: 1024px) {
     header {
@@ -114,7 +113,8 @@ header {
     background: -webkit-linear-gradient(left, #694A80, #8B4B99);
     -webkit-box-shadow: 0px 1px 1px 1px rgba(0, 0, 0, 0.32);
     -moz-box-shadow: 0px 1px 1px 1px rgba(0, 0, 0, 0.32);
-    box-shadow: 0px 1px 1px 1px rgba(0, 0, 0, 0.32); }
+    box-shadow: 0px 1px 1px 1px rgba(0, 0, 0, 0.32);
+    transition: 0.35s all; }
   header .logo-finance {
     color: #F1F1F2;
     font-size: 1.6em;
@@ -136,24 +136,29 @@ header {
     padding-right: 3em; }
     @media only screen and (min-width: 340px) and (max-width: 1024px) {
       header nav {
-        display: none; } }
+        display: none;
+        left: -1000px; } }
     @media only screen and (max-width: 340px) {
       header nav {
-        display: none; } }
-    header nav.visible {
+        display: none;
+        left: -1000px; } }
+    header nav.open {
       background: linear-gradient(left, #694A80, #8B4B99);
       background: -webkit-linear-gradient(left, #694A80, #8B4B99);
       display: block;
       position: absolute;
-      top: 0; }
-      header nav.visible ul {
+      top: 0;
+      left: 0; }
+      header nav.open ul {
         height: 100vh;
         width: 100vw;
-        transition: 0.5s height;
-        margin-top: 5%; }
-        header nav.visible ul li {
+        margin-top: 5%;
+        transition: 0.3s all; }
+        header nav.open ul li {
           float: none;
           padding: 2% 5%; }
+          header nav.open ul li a {
+            font-size: 2.0em; }
     header nav ul li {
       float: left;
       padding: 0px 15px; }

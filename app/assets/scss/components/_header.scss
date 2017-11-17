@@ -2,7 +2,7 @@ header{
 	top: 0;
 	position: fixed;
 	padding: 2% 0;
-	background-color: $black;
+	// background-color: $black;
 	width: 100%;
 	@include media-query(medium-screens){padding: 3.5% 0;}
 	@include media-query(handheld){padding: 7.5% 0;}
@@ -13,6 +13,7 @@ header{
 		-webkit-box-shadow: 0px 1px 1px 1px rgba(0,0,0,0.32);
 		-moz-box-shadow: 0px 1px 1px 1px rgba(0,0,0,0.32);
 		box-shadow: 0px 1px 1px 1px rgba(0,0,0,0.32);
+		transition: 0.35s all;
 	}
 	.logo-finance{
 		color: $white;
@@ -35,27 +36,34 @@ header{
 		padding-right: 3em;
 		@include media-query(medium-screens){
 			display: none;
+			left: -1000px;
 		}
 		@include media-query(handheld){
 			display: none;
+			left: -1000px;
 		}
 
-		&.visible{
+		&.open{
 			background: linear-gradient(left,#694A80,#8B4B99);
 			background: -webkit-linear-gradient(left,#694A80,#8B4B99);
 			display: block;
 			position: absolute;
 			top: 0;
+			left: 0;
+			// transition: .4s all;
 
 			ul{
 				height: 100vh;
 				width: 100vw;
-				transition: 0.5s height;
 				margin-top: 5%;
+				transition: 0.3s all;
 
 				li{
 					float: none;
 					padding: 2% 5%;
+					a{
+						font-size: 2.0em;
+					}
 				}
 			}
 		}

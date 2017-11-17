@@ -1,9 +1,11 @@
 header{
 	top: 0;
 	position: fixed;
-	padding: 2.5em 0;
-	background-color: rgba(255,255,255,0);
+	padding: 2% 0;
+	background-color: $black;
 	width: 100%;
+	@include media-query(medium-screens){padding: 3.5% 0;}
+	@include media-query(handheld){padding: 7.5% 0;}
 
 	&.scroll{
 		background: linear-gradient(left,#694A80,#8B4B99);
@@ -13,12 +15,50 @@ header{
 		box-shadow: 0px 1px 1px 1px rgba(0,0,0,0.32);
 	}
 	.logo-finance{
+		color: $white;
+		font-size: 1.6em;
+		font-weight: 700;
 		float: left;
+		padding-left: 2%;
+		@include media-query(medium-screens){padding: 5px 0 0 2%;}
+		@include media-query(handheld){padding: 7px 0 0 2%;}
+
+		&:hover{
+			color: $magenta;
+			cursor: pointer;
+			transition: 0.3s all;
+		}
 	}
 
 	nav{
-		padding-right: 3em;
 		float: right;
+		padding-right: 3em;
+		@include media-query(medium-screens){
+			display: none;
+		}
+		@include media-query(handheld){
+			display: none;
+		}
+
+		&.visible{
+			background: linear-gradient(left,#694A80,#8B4B99);
+			background: -webkit-linear-gradient(left,#694A80,#8B4B99);
+			display: block;
+			position: absolute;
+			top: 0;
+
+			ul{
+				height: 100vh;
+				width: 100vw;
+				transition: 0.5s height;
+				margin-top: 5%;
+
+				li{
+					float: none;
+					padding: 2% 5%;
+				}
+			}
+		}
 
 		ul li{
 			float: left;
@@ -30,13 +70,43 @@ header{
 				font-size: 1.6em;
 				text-align: center;
 				text-decoration: none;
-				@include media-query(medium-screens){color: #333;}
 
 				&:hover{
 					color: $ocre;
 					cursor: pointer;
 					transition: 0.3s color;
 				}
+			}
+		}
+	}
+	div.menu_mobile--sandwich{
+		display: none;
+		float: right;
+		padding-right: 7.5%;
+		width: 35px;
+		z-index: 4;
+		@include media-query(medium-screens){display: block}
+		@include media-query(handheld){display: block;}
+
+		& span{
+			background-color: $white;
+			display: block;
+			height: 4px;
+			margin: 5px 0;
+			transition: 0.4s;
+			width: 30px;
+		}
+		&--open{
+			& span:nth-child(1){
+				-webkit-transform: rotate(-45deg) translate(-13px, 0px);
+	    	transform: rotate(-45deg) translate(-13px, 0px);
+			}
+			& span:nth-child(2){
+				opacity: 0;
+			}
+			& span:nth-child(3){
+				-webkit-transform: rotate(45deg) translate(-12px, 0px);
+    		transform: rotate(45deg) translate(-12px, 0px);
 			}
 		}
 	}

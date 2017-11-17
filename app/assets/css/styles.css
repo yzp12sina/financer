@@ -100,9 +100,15 @@ div.center--vertical, div.content--home, div.content--about {
 header {
   top: 0;
   position: fixed;
-  padding: 2.5em 0;
-  background-color: rgba(255, 255, 255, 0);
+  padding: 2% 0;
+  background-color: #333;
   width: 100%; }
+  @media only screen and (min-width: 340px) and (max-width: 1024px) {
+    header {
+      padding: 3.5% 0; } }
+  @media only screen and (max-width: 340px) {
+    header {
+      padding: 7.5% 0; } }
   header.scroll {
     background: linear-gradient(left, #694A80, #8B4B99);
     background: -webkit-linear-gradient(left, #694A80, #8B4B99);
@@ -110,10 +116,44 @@ header {
     -moz-box-shadow: 0px 1px 1px 1px rgba(0, 0, 0, 0.32);
     box-shadow: 0px 1px 1px 1px rgba(0, 0, 0, 0.32); }
   header .logo-finance {
-    float: left; }
+    color: #F1F1F2;
+    font-size: 1.6em;
+    font-weight: 700;
+    float: left;
+    padding-left: 2%; }
+    @media only screen and (min-width: 340px) and (max-width: 1024px) {
+      header .logo-finance {
+        padding: 5px 0 0 2%; } }
+    @media only screen and (max-width: 340px) {
+      header .logo-finance {
+        padding: 7px 0 0 2%; } }
+    header .logo-finance:hover {
+      color: #CC3375;
+      cursor: pointer;
+      transition: 0.3s all; }
   header nav {
-    padding-right: 3em;
-    float: right; }
+    float: right;
+    padding-right: 3em; }
+    @media only screen and (min-width: 340px) and (max-width: 1024px) {
+      header nav {
+        display: none; } }
+    @media only screen and (max-width: 340px) {
+      header nav {
+        display: none; } }
+    header nav.visible {
+      background: linear-gradient(left, #694A80, #8B4B99);
+      background: -webkit-linear-gradient(left, #694A80, #8B4B99);
+      display: block;
+      position: absolute;
+      top: 0; }
+      header nav.visible ul {
+        height: 100vh;
+        width: 100vw;
+        transition: 0.5s height;
+        margin-top: 5%; }
+        header nav.visible ul li {
+          float: none;
+          padding: 2% 5%; }
     header nav ul li {
       float: left;
       padding: 0px 15px; }
@@ -123,10 +163,34 @@ header {
         font-size: 1.6em;
         text-align: center;
         text-decoration: none; }
-        @media only screen and (min-width: 320px) and (max-width: 1024px) {
-          header nav ul li a {
-            color: #333; } }
         header nav ul li a:hover {
           color: #DB7623;
           cursor: pointer;
           transition: 0.3s color; }
+  header div.menu_mobile--sandwich {
+    display: none;
+    float: right;
+    padding-right: 7.5%;
+    width: 35px;
+    z-index: 4; }
+    @media only screen and (min-width: 340px) and (max-width: 1024px) {
+      header div.menu_mobile--sandwich {
+        display: block; } }
+    @media only screen and (max-width: 340px) {
+      header div.menu_mobile--sandwich {
+        display: block; } }
+    header div.menu_mobile--sandwich span {
+      background-color: #F1F1F2;
+      display: block;
+      height: 4px;
+      margin: 5px 0;
+      transition: 0.4s;
+      width: 30px; }
+    header div.menu_mobile--sandwich--open span:nth-child(1) {
+      -webkit-transform: rotate(-45deg) translate(-13px, 0px);
+      transform: rotate(-45deg) translate(-13px, 0px); }
+    header div.menu_mobile--sandwich--open span:nth-child(2) {
+      opacity: 0; }
+    header div.menu_mobile--sandwich--open span:nth-child(3) {
+      -webkit-transform: rotate(45deg) translate(-12px, 0px);
+      transform: rotate(45deg) translate(-12px, 0px); }

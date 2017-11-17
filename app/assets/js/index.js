@@ -5,3 +5,7 @@ $('header nav a').click(function(){
   if($(url).length)
     $('html,body').animate({scrollTop: $(url).offset().top}, 2000);
 });
+//scroll menu color
+$(window).scroll(function() {
+    if ($(window).scrollTop() >= 200) $("header").addClass("scroll"); else $("header").removeClass("scroll");
+});

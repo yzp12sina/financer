@@ -63,17 +63,17 @@ html, html body {
     background-color: #F1F1F2;
     font-size: 62.5%; }
 
-.content {
+div.content {
   padding: 0.5em;
   color: #333; }
 
-.center-v, .content--home, .content--about {
+div.center {
+  text-align: center; }
+
+div.center--vertical, div.content--home, div.content--about {
   display: flex;
   flex-direction: column;
   justify-content: center; }
-
-.center-h {
-  text-align: center; }
 
 .content {
   text-align: center; }
@@ -103,14 +103,20 @@ header {
   padding: 2.5em 0;
   background-color: rgba(255, 255, 255, 0);
   width: 100%; }
-  header .finance {
+  header.scroll {
+    background: linear-gradient(left, #694A80, #8B4B99);
+    background: -webkit-linear-gradient(left, #694A80, #8B4B99);
+    -webkit-box-shadow: 0px 1px 1px 1px rgba(0, 0, 0, 0.32);
+    -moz-box-shadow: 0px 1px 1px 1px rgba(0, 0, 0, 0.32);
+    box-shadow: 0px 1px 1px 1px rgba(0, 0, 0, 0.32); }
+  header .logo-finance {
     float: left; }
   header nav {
     padding-right: 3em;
     float: right; }
     header nav ul li {
       float: left;
-      padding: 5px 15px; }
+      padding: 0px 15px; }
       header nav ul li a {
         color: #F1F1F2;
         font-weight: 500;

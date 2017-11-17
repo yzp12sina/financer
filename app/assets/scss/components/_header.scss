@@ -5,7 +5,14 @@ header{
 	background-color: rgba(255,255,255,0);
 	width: 100%;
 
-	.finance{
+	&.scroll{
+		background: linear-gradient(left,#694A80,#8B4B99);
+		background: -webkit-linear-gradient(left,#694A80,#8B4B99);
+		-webkit-box-shadow: 0px 1px 1px 1px rgba(0,0,0,0.32);
+		-moz-box-shadow: 0px 1px 1px 1px rgba(0,0,0,0.32);
+		box-shadow: 0px 1px 1px 1px rgba(0,0,0,0.32);
+	}
+	.logo-finance{
 		float: left;
 	}
 
@@ -15,7 +22,7 @@ header{
 
 		ul li{
 			float: left;
-			padding: 5px 15px;
+			padding: 0px 15px;
 
 			a{
 				color: $white;

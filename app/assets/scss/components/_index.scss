@@ -1,7 +1,7 @@
 .content{
 	text-align: center;
 	&--home{
-		@extend .center-v;
+		@extend .center--vertical;
 		background: linear-gradient(left,#694A80,#8B4B99);
 		background: -webkit-linear-gradient(left,#694A80,#8B4B99);
 		color: $white;
@@ -20,7 +20,7 @@
 		}
 	}
 	&--about{
-		@extend .center-v;
+		@extend .center--vertical;
 		height: 100%;
 		background-color: $white;
 		color: $grape;

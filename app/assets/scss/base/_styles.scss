@@ -10,15 +10,15 @@ html{
 }
 
 //=====content=====
-.content{
+div.content{
 	padding: 0.5em;
 	color: $gray-dark;
 }
-.center-v{
+div.center{
+	text-align: center;
+}
+div.center--vertical{
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-}
-.center-h{
-	text-align: center;
 }

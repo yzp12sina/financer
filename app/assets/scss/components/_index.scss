@@ -10,23 +10,67 @@
 		h1{
 			font-size: 3.8em;
 			font-weight: 500;
-			color: $jelly-bean;
+			color: $white;
 		}
 
 		h3{
 			padding-top: 10px;
-			font-size: 14px;
+			font-size: 1.4em;
 			font-weight: 300;
+			color: $white;
 		}
 	}
 	&--about{
 		@extend .center--vertical;
-		height: 100%;
-		background-color: $white;
 		color: $grape;
+		background-color: $white;
+		height: 100%;
+		text-align: left;
 
-		h1, h3{
+		h1, h3, p, ul{
+			padding-left: 5%;
 			padding-bottom: 10px;
+			color: $grape;
+			@include media-query(handheld){padding-left: 2%;}
+		}
+		ul li{
+			padding: 5px 0;
+			font-size: 1.4em;
+		}
+	}
+	&--dev{
+		@extend .center--vertical;
+		color: $white;
+		background: linear-gradient(left,#694A80,#8B4B99);
+		background: -webkit-linear-gradient(left,#694A80,#8B4B99);
+		text-align: right;
+		padding: 10% 0 !important;
+		@include media-query(handheld){text-align: left; padding: 10% 2% !important;}
+
+		h1, h3, p, ul{
+			padding-right: 5%;
+			padding-bottom: 10px;
+			color: $white;
+		}
+	}
+	&--login{
+		background: $white;
+		// height: 100%;
+		text-align: center;
+		padding: 0 !important;
+		@include media-query(handheld){text-align: left;}
+
+		& > div{
+			width: 50%;
+			height: 100%;
+			float: left;
+			padding: 7.5%;
+			@include media-query(handheld){width: 100%; padding: 7% 2%;}
+		}
+		h1, h2, h3, p, ul{
+			padding-right: 5%;
+			padding-bottom: 10px;
+			color: $grape;
 		}
 	}
 }

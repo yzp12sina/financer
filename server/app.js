@@ -1,11 +1,29 @@
+var port = 3006;
 //requires for server work, already setting at package.json file as dependencies
-const express = require('express');
-const engine = require('ejs');
-const MongoClient = require('mongodb').MongoClient
-const app = express();
-__dirname = '../';
-//to set a static content
-// app.use(express.static('../dist'));
+var express = require('express');
+var app = express();
+var engine = require('ejs');
+var mongoose = require('mongoose');
+var bodyParser= require('body-parser');
+
+//setting bodyParser
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
+
+//setting database
+var Schema = mongoose.Schema;
+mongoose.connect('mongodb://localhost:27017/', { useMongoClient: true });
+mongoose.Promise = global.Promise;
+var UsersSchema = new Schema({
+  name: String,
+  email: String
+});
+
+
+//setting routes
+var api = express.Router();
+var financer = express.Router();
+
 
 //setting ejs to render html files
 app.engine('html', engine.renderFile);
@@ -14,19 +32,17 @@ app.set('views', '../dist/');
 //setting static content
 app.use("/css", express.static('../dist/css'));
 app.use("/js", express.static('../dist/js'));
-//routes
-app.get('/', function (req, res) {
+
+
+//setting default api
+app.use('/api',api);
+
+/*=====ROUTES======*/
+financer.get('/', function (req, res) {
   res.render('index.html');
 });
-app.get('/home', function (req, res) {
-  res.end('Hello world');
-});
 
-//start server at localhost on 3006 port
-// MongoClient.connect('mongodb://<teste>:<teste>@ds259865.mlab.com:59865/financer', (err, database) => {
-//   if (err) return console.log(err)
-//   db = database
-  app.listen(3006, function () {
-    console.log('Financer is now running at port 3006...');
-  });
-// });
+
+app.listen(port, ()=>{
+  console.log('Server running..');
+});

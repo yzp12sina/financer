@@ -10,9 +10,10 @@ header{
 	&.scroll{
 		background: linear-gradient(left,#694A80,#8B4B99);
 		background: -webkit-linear-gradient(left,#694A80,#8B4B99);
-		-webkit-box-shadow: 0px 1px 1px 1px rgba(0,0,0,0.32);
-		-moz-box-shadow: 0px 1px 1px 1px rgba(0,0,0,0.32);
-		box-shadow: 0px 1px 1px 1px rgba(0,0,0,0.32);
+		// -webkit-box-shadow: 0px 1px 1px 1px rgba(0,0,0,0.32);
+		// -moz-box-shadow: 0px 1px 1px 1px rgba(0,0,0,0.32);
+		// box-shadow: 0px 1px 1px 1px rgba(0,0,0,0.32);
+		border-bottom: .5px solid $white;
 		transition: 0.35s all;
 	}
 	.logo-finance{
@@ -22,7 +23,7 @@ header{
 		float: left;
 		padding-left: 2%;
 		@include media-query(medium-screens){padding: 5px 0 0 2%;}
-		@include media-query(handheld){padding: 7px 0 0 2%;}
+		@include media-query(handheld){padding: 7px 0 0 4%;}
 
 		&:hover{
 			color: $magenta;
@@ -80,9 +81,19 @@ header{
 				text-decoration: none;
 
 				&:hover{
-					color: $ocre;
-					cursor: pointer;
-					transition: 0.3s color;
+					color: $jelly-bean;
+					transition: 0.3s;
+				}
+
+				&.login{
+					background-color: $jelly-bean;
+					padding: 7.5px 12.5px;
+					border-radius: 2px;
+
+					&:hover{
+						background-color: $purple;
+						color: $white;
+					}
 				}
 			}
 		}
@@ -93,8 +104,14 @@ header{
 		padding-right: 7.5%;
 		width: 35px;
 		z-index: 4;
-		@include media-query(medium-screens){display: block}
-		@include media-query(handheld){display: block;}
+		@include media-query(medium-screens){
+			display: block;
+			padding-right: 5%;
+		}
+		@include media-query(handheld){
+			display: block;
+	    padding-right: 12.5%;
+		}
 
 		& span{
 			background-color: $white;

@@ -1,8 +1,12 @@
 //index navbar
 $('header nav a').click(function(){
   var url = $(this).attr('href').replace('#','.content--');
-  if($(url).length)
+  if($(url).length){
     $('html,body').animate({scrollTop: $(url).offset().top}, 2000);
+    $('.menu_mobile--sandwich').removeClass("menu_mobile--sandwich--open");
+    $('header nav').removeClass('open');
+  }
+
 });
 //scroll menu change header background-color
 $(window).scroll(function(){

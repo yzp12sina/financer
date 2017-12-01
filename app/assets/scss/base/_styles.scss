@@ -7,6 +7,54 @@ html{
 		background-color: $white;
 		font-size: 62.5%;
 	}
+	h1{
+		font-size: 3.8em;
+	}
+	h2{
+		font-size: 2.4em;
+	}
+	h3{
+		font-size: 1.6em;
+	}
+	p{
+		font-size: 1.2em;
+	}
+	a{
+		color: $white;
+	}
+	form{
+		div.field{
+			display: block;
+			text-align: left;
+			width: 100%;
+			margin: 4% 0;
+
+			label{
+				color: $grape;
+				font-size: 1.4em;
+				font-weight: 700;
+			}
+			input{
+				width: 100%;
+				&[type="text"], &[type="password"], &[type="email"]{
+					border: none;
+					border-radius: 2.5px;
+					color: $grape;
+					font-family: 'Ubuntu', sans-serif;
+					font-weight: 300;
+					font-size: 1.4em;
+					margin-top: 1%;
+					padding: 3%;
+
+					&:focus{
+						outline: none;
+						border: 1px solid $grape;
+						// background-color: $grape;
+					}
+				}
+			}
+		}
+	}
 }
 
 //=====content=====
@@ -21,4 +69,23 @@ div.center--vertical{
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+}
+//buttons
+.btn{
+	background-color: $grape;
+	border: none;
+	border-radius: 2.5px;
+	color: $white;
+	padding: 10px 17.5px;
+	&:hover{
+		opacity: 0.85;
+		transition: .3s all;
+	}
+	&:focus{
+		outline: none;
+	}
+	&--full{
+		width: 100%;
+		padding: 3%;
+	}
 }

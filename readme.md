@@ -12,8 +12,16 @@ Finance permite que você:
 - [x] Node
 - [x] Express
 - [x] MongoDB
+- [x] Mongoose
 - [x] Gulp
 - [x] Sass
+
+#### api
+  - usuario
+  - receitas
+  - despesas
+  - calculos(?)
+
 
 #### Instalação
 #### Desenvolvimento

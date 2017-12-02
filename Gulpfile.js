@@ -30,7 +30,7 @@ gulp.task('scripts',function(){
 gulp.task('images', function(){
   return gulp.src('app/assets/images/**/*.+(png|jpg|gif|svg)')
   .pipe(imagemin())
-  .pipe(gulp.dest('dist/images'))
+  .pipe(gulp.dest('public/images'))
 });
 gulp.task('browserSync', function() {
   browserSync.init({
@@ -44,7 +44,7 @@ gulp.task('build', ['sass','scripts','images'], function(){
     .pipe(useref())
     .pipe(gulpIf('**/*.js', uglify()))
     .pipe(gulpIf('**/*.css', cssnano()))
-    .pipe(gulp.dest('dist'))
+    .pipe(gulp.dest('public'))
 });
 
 gulp.task('watch', ['browserSync', 'sass','scripts'], function (){

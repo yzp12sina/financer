@@ -1,11 +1,8 @@
-//SERVER PORT
-var port = process.env.port || 3006;
-
-var express = require('express');
-var app = express();
-var engine = require('ejs');
-var mongoose = require('mongoose');
-var bodyParser= require('body-parser');
+var express = require('express'),
+    app = express(),
+    engine = require('ejs'),
+    mongoose = require('mongoose'),
+    bodyParser= require('body-parser');
 
 //models
 var User = require('./models/User');
@@ -37,6 +34,6 @@ app.use('/api',api);
 app.use('/',financer);
 
 //start server
-app.listen(port, ()=>{
-  console.log('Server running on port ' + port +'...');
+app.listen(process.env.PORT || 3000, ()=>{
+  console.log('Server running...');
 });

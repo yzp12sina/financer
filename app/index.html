@@ -1,8 +1,88 @@
-<ul class="quotes">
-  <% for(var i=0; i<test.length; i++) {%>
-    <li class="quote">
-      <span><%= test[i]._id %></span>
-      <span><%= test[i].name %></span>
-    </li>
-  <% } %>
-</ul>
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="icon" type="image/png" href="assets/images/icon.png" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Financer - Poupe para gastar</title>
+	<!--build:css css/styles.min.css-->
+		<link rel="stylesheet" href="assets/css/styles.css">
+	<!--endbuild-->
+</head>
+<body>
+	<header>
+		<div class='logo-finance'>Financer</div>
+		<nav>
+			<ul>
+				<li><a href='#home'>Home</a></li>
+				<li><a href='#about'>O que é?</a></li>
+				<li><a href='#dev'>Dev</a></li>
+        <li><a class='btn' href='#login'>Entrar</a></li>
+			</ul>
+		</nav>
+		<div class='menu_mobile--sandwich'>
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
+	</header>
+	<div class='content content--home'>
+		<% if ( typeof name == 'undefined' ){ %>
+		   <h1>Financer</h1>
+		<% } else{ %>
+		   <h1><%= name %></h1>
+		 <% } %>
+		<h3>O melhor jeito de você controlar as suas finanças</h3>
+	</div>
+  <div class='content content--about'>
+    <h1>Finance = Economia! :D</h1>
+    <h3>Quer economizar? Crie sua conta, adicione suas receitas e despesas!</h3>
+    <p>Porque quando você planeja, você tende a gastar menos e assim aquele dinheiro que antes faltava no fim do mês, passa a sobrar e a te ajudar a comprar coisaaaaaaaas :3</p>
+  </div>
+  <div class='content content--dev'>
+    <h1>API</h1>
+  </div>
+  <div class='content content--login'>
+    <div>
+      <h1>Login</h1>
+      <form action="/api/login" method="POST">
+        <div class="field">
+          <label for="login">Email</label>
+          <input id="login" type="email" name="login" value="" placeholder='Digite seu login' required>
+        </div>
+        <div class="field">
+          <label for="password">Senha</label>
+          <input id="password" type="password" name="password" value="" placeholder='Digite sua senha' required>
+        </div>
+        <div class="field">
+          <button type="submit" class="btn btn--full">Entrar</button>
+        </div>
+      </form>
+    </div>
+    <div>
+      <h1>Cadastrar</h1>
+      <form action="/api/signup" method="POST">
+        <div class="field">
+          <label for="name">Nome</label>
+          <input id="name" type="text" name="name" value="" placeholder='Digite seu nome' required>
+        </div>
+        <div class="field">
+          <label for="slogin">Email</label>
+          <input id="slogin" type="email" name="login" value="" placeholder='Digite seu login' required>
+        </div>
+        <div class="field">
+          <label for="spassword">Senha</label>
+          <input id="spassword" type="password" name="password" value="" placeholder='Digite sua senha' required>
+        </div>
+        <div class="field">
+          <button type="submit" class="btn btn--full">Cadastrar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+	<!--build:js js/main.min.js -->
+	<script type="text/javascript" src="assets/js/_jquery.min.js"></script>
+	<script type="text/javascript" src="assets/js/index.js"></script>
+	<script type="text/javascript" src="assets/js/main.js"></script>
+	<!-- endbuild -->
+</body>
+</html>

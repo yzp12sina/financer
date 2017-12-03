@@ -18,10 +18,20 @@ Finance permite que você:
 
 #### api
   - usuario
+  - Session
   - receitas
   - despesas
   - calculos(?)
 
 
 #### Instalação
+  Instalar:
+  - Node
+  - MongoDB
+
+
+  Abrir console e executar:
+
+        npm install
+
 #### Desenvolvimento

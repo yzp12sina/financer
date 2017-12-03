@@ -2,18 +2,25 @@ var express = require('express'),
     app = express(),
     engine = require('ejs'),
     mongoose = require('mongoose'),
-    bodyParser= require('body-parser');
+    bodyParser = require('body-parser'),
+    session  = require('express-session');
 
 //models
-var User = require('./models/User');
+var Session = require('./app/models/User'),
+    User = require('./app/models/User'),
+    Income = require('./app/models/Income'),
+    Outcome = require('./app/models/Outcome');
 
 //routes
-var api = require('./routes/Api');
-var financer = require('./routes/Financer');
+var api = require('./app/routes/Api'),
+    financer = require('./app/routes/Financer');
 
 //setting bodyParser
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
+
+//setting Session
+app.use(session({secret:"financeristhebest",resave:false,saveUninitialized:true}));
 
 //setting database
 mongoose.connect('mongodb://localhost:27017/', { useMongoClient: true });
@@ -22,18 +29,16 @@ mongoose.Promise = global.Promise;
 //setting ejs to render html files
 app.engine('html', engine.renderFile);
 
-//setting views dir
-app.set('views', './dist/');
-
-//setting static content
-app.use("/css", express.static('../dist/css'));
-app.use("/js", express.static('../dist/js'));
+//setting views dir and static content
+app.set('views', './public/');
+app.use("/css", express.static('./public/css'));
+app.use("/js", express.static('./public/js'));
 
 //setting ROUTES
 app.use('/api',api);
 app.use('/',financer);
 
 //start server
-app.listen(process.env.PORT || 3000, ()=>{
+app.listen(process.env.PORT || 8000, ()=>{
   console.log('Server running...');
 });

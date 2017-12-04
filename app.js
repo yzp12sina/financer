@@ -20,7 +20,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
 //setting Session
-app.use(session({secret:"financeristhebest",resave:false,saveUninitialized:true}));
+app.use(session({ secret : "financeristhebest", resave : false, saveUninitialized : true }));
 
 //setting database
 mongoose.connect('mongodb://localhost:27017/', { useMongoClient: true });

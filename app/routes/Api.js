@@ -18,41 +18,56 @@ api.use(function(req,res,next){
 });
 
 /*ROUTES========================*/
-api.route('/')
-  .get(function(req,res){
-    res.render('api.html');
-  });
+api.get('/',function(req,res){
+  res.render('api.html');
+});
 
 /* -> signup */
 api.post('/signup',function(req,res){
-   bcrypt.hash(req.body.password, 10, function(err, hash) {
-      var user = new User();
+  User.findOne({email : req.body.email}, function(err, user){
+    if(!user){
+      bcrypt.hash(req.body.password, 10, function(err, hash) {
+        var user = new User();
 
-      user.name = req.body.name;
-      user.email = req.body.email;
-      user.password = hash;
-      user.created_at = Date.now();
-      user.updated_at = Date.now();
+        user.name = req.body.name;
+        user.email = req.body.email;
+        user.password = hash;
+        user.created_at = Date.now();
+        user.updated_at = Date.now();
 
-      user.save(function(error){
-        if(error)
-            var response = {
-               status : 500 ,
-               message : "Error while save user"
-            };
-        else
-            var response = {
-               status : 200,
-               data : user,
-               message : "User saved!"
-            };
-        res.json(response);
+        user.save(function(error){
+          if(error)
+              var response = {
+                 status : 500 ,
+                 message : "Error while save user"
+              };
+          else
+              var response = {
+                 status : 200,
+                 data : user,
+                 message : "User saved!"
+              };
+          res.json(response);
+        });
       });
-   });
+    }else{
+      res.json({
+         status : 500,
+         message : "User already exists"
+      });
+    }
+  });
+});
+api.get('/signup', function(req,res){
+  res.json({
+    status:404,
+    message:"use post instead"
+  });
 });
 
 //LOGIN
 api.post('/login', function(req,res){
+  console.log(res);
    var _res = res;
    User.findOne({email : req.body.email}, function(err, user){
       if(user){
@@ -79,6 +94,20 @@ api.post('/login', function(req,res){
       }
    });
 });
+api.get('/login', function(req,res){
+  res.json({
+    status:404,
+    message:"use post instead"
+  });
+});
+
+api.get('/logoff', function(req,res){
+  req.session.destroy();
+  res.json({
+    status : 200,
+    message : "logoff"
+  })
+});
 
 api.get('/user/', function(req,res){
      User.find(function(err, user){
@@ -86,7 +115,7 @@ api.get('/user/', function(req,res){
         res.json({ message : 'Erro ao mostrar usuários' });
       res.json(user);
     });
-    User.remove({},function(){});
+    // User.remove({},function(){});
     // res.json({ message : "This is not the right way. Access /api/ to see documentation"});
 });
 api.get('/session/', function(req,res){

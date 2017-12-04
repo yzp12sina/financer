@@ -9,7 +9,6 @@ financer.use(function(req,res,next){
 });
 
 financer.get('/', function (req, res) {
-   console.log(req.session);
    if(req.session.status=='Authorized')
       res.redirect('/app');
    else

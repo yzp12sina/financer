@@ -23,7 +23,9 @@ app.use(bodyParser.json());
 app.use(session({ secret : "financeristhebest", resave : false, saveUninitialized : true }));
 
 //setting database
-mongoose.connect('mongodb://localhost:27017/', { useMongoClient: true });
+mongoose.connect('mongodb://localhost:27017/', { useMongoClient: true }, function(err){
+    if(err) console.log('Error do connect database...'); else console.log('Connected to database...');
+});
 mongoose.Promise = global.Promise;
 
 //setting ejs to render html files

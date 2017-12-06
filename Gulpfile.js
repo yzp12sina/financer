@@ -35,7 +35,8 @@ gulp.task('images', function(){
 gulp.task('browserSync', function() {
   browserSync.init({
     server: {
-      baseDir: 'app'
+      baseDir: 'app/views',
+		proxy: "localhost:8000"
     },
   })
 })

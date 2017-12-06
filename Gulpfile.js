@@ -53,7 +53,7 @@ gulp.task('watch', ['browserSync', 'sass','scripts'], function (){
   gulp.watch('app/views/assets/js/**/*.js', browserSync.reload);
 });
 
-gulp.task('default', ['watch'], function (){
+gulp.task('default', ['watch', 'build'], function (){
   gulp.watch('app/views/assets/scss/**/*.scss', ['sass']);
   gulp.watch('app/views/*.html', browserSync.reload);
   gulp.watch('app/views/assets/js/**/*.js', browserSync.reload);

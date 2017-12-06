@@ -126,12 +126,12 @@ api.get('/user/', function(req,res){
     // res.json({ message : "This is not the right way. Access /api/ to see documentation"});
 });
 api.get('/session/', function(req,res){
-   var auth = req.body.auth || 'null';
-   Session.findOne({ auth : auth },function(err, user){
-    if(err || !user)
-     res.json({ message : 'Erro ao mostrar sessoes ativas' });
-    res.json(user);
-   });
+   // var auth = req.body
+   // Session.findOne({auth:},function(err, user){
+   //  if(err)
+   //   res.json({ message : 'Erro ao mostrar sessoes ativas' });
+   //  res.json(user);
+   // });
    //res.json(req.session);
 });
 

@@ -12,23 +12,23 @@ gulp.task('default',function(){
 })
 
 gulp.task('sass', function(){
-  return gulp.src('app/assets/scss/**/*.scss') // Gets all files ending with .scss in app/scss
-    .pipe(sass({includePaths: ['app/assets/scss']}).on('err', sass.logError))
-    .pipe(gulp.dest('app/assets/css'))
+  return gulp.src('app/views/assets/scss/**/*.scss') // Gets all files ending with .scss in app/scss
+    .pipe(sass({includePaths: ['app/views/assets/scss']}).on('err', sass.logError))
+    .pipe(gulp.dest('app/views/assets/css'))
     .pipe(browserSync.reload({
       stream: true
     }))
 });
 gulp.task('scripts',function(){
-	return gulp.src('app/assets/scss/**/*.js')
+	return gulp.src('app/views/assets/scss/**/*.js')
 		.pipe(gulpIf('**/*.js', uglify()))
-		.pipe(gulp.dest('app/assets/js/*.js'))
+		.pipe(gulp.dest('app/views/assets/js/*.js'))
 		.pipe(browserSync.reload({
 	      stream: true
 	    }))
 });
 gulp.task('images', function(){
-  return gulp.src('app/assets/images/**/*.+(png|jpg|gif|svg)')
+  return gulp.src('app/views/assets/images/**/*.+(png|jpg|gif|svg)')
   .pipe(imagemin())
   .pipe(gulp.dest('public/images'))
 });
@@ -40,7 +40,7 @@ gulp.task('browserSync', function() {
   })
 })
 gulp.task('build', ['sass','scripts','images'], function(){
-  return gulp.src('app/*.html')
+  return gulp.src('app/views/*.html')
     .pipe(useref())
     .pipe(gulpIf('**/*.js', uglify()))
     .pipe(gulpIf('**/*.css', cssnano()))
@@ -48,13 +48,13 @@ gulp.task('build', ['sass','scripts','images'], function(){
 });
 
 gulp.task('watch', ['browserSync', 'sass','scripts'], function (){
-  gulp.watch('app/assets/scss/**/*.scss', ['sass']);
-  gulp.watch('app/*.html', browserSync.reload);
-  gulp.watch('app/assets/js/**/*.js', browserSync.reload);
+  gulp.watch('app/views/assets/scss/**/*.scss', ['sass']);
+  gulp.watch('app/views/*.html', browserSync.reload);
+  gulp.watch('app/views/assets/js/**/*.js', browserSync.reload);
 });
 
-gulp.task('default', ['browserSync', 'sass','scripts'], function (){
-  gulp.watch('app/assets/scss/**/*.scss', ['sass']);
-  gulp.watch('app/*.html', browserSync.reload);
-  gulp.watch('app/assets/js/**/*.js', browserSync.reload);
+gulp.task('default', ['watch'], function (){
+  gulp.watch('app/views/assets/scss/**/*.scss', ['sass']);
+  gulp.watch('app/views/*.html', browserSync.reload);
+  gulp.watch('app/views/assets/js/**/*.js', browserSync.reload);
 });

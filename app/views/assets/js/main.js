@@ -7,7 +7,7 @@ Finance.App = {
 	settings: {},
 	Utils: Finance.App.Util,
 
-	init : function(){
+	init : ()=> {
 		switch (window.location.pathname.replace('/', '').split('/')[0]) {
 			case '': 
 				console.log('Ok');
@@ -16,7 +16,7 @@ Finance.App = {
 	}
 }
 
-document.addEventListener("DOMContentLoaded", function(event) {
+document.addEventListener("DOMContentLoaded", event => {
 	Finance.App.init();
 	var _json;
 
@@ -27,6 +27,5 @@ document.addEventListener("DOMContentLoaded", function(event) {
 	}).then(function(google) {
 	  _json = google;
 	});
-
 	console.log(_json);
 });

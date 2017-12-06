@@ -48,7 +48,7 @@ gulp.task('build', ['sass','scripts','images'], function(){
     .pipe(gulp.dest('public'))
 });
 
-gulp.task('watch', ['browserSync', 'sass','scripts'], function (){
+gulp.task('watch', ['browserSync', 'sass','scripts','build'], function (){
   gulp.watch('app/views/assets/scss/**/*.scss', ['sass']);
   gulp.watch('app/views/*.html', browserSync.reload);
   gulp.watch('app/views/assets/js/**/*.js', browserSync.reload);

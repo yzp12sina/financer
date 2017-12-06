@@ -67,7 +67,6 @@ api.get('/signup', function(req,res){
 
 //LOGIN
 api.post('/login', function(req,res){
-  console.log(res);
    var _res = res;
    User.findOne({email : req.body.email}, function(err, user){
       if(user){
@@ -126,13 +125,11 @@ api.get('/user/', function(req,res){
     // res.json({ message : "This is not the right way. Access /api/ to see documentation"});
 });
 api.get('/session/', function(req,res){
-   // var auth = req.body
-   // Session.findOne({auth:},function(err, user){
-   //  if(err)
-   //   res.json({ message : 'Erro ao mostrar sessoes ativas' });
-   //  res.json(user);
-   // });
-   //res.json(req.session);
+   var auth = req.query.auth;
+   Session.findOne({auth:auth},function(err, user){
+    res.json(user);     
+   });
+   // res.json(req.session);
 });
 
 module.exports = api;

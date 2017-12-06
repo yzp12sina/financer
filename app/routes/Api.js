@@ -5,7 +5,7 @@ var express = require('express'),
     flash = require('req-flash');
 
 
-var Session = require('../models/User'),
+var Session = require('../models/Session'),
     User = require('../models/User'),
     Income = require('../models/Income'),
     Outcome = require('../models/Outcome');
@@ -78,10 +78,17 @@ api.post('/login', function(req,res){
                var auth = (new Date()).valueOf().toString()+Math.random().toString();
                bcrypt.hash(auth, 2).then(function(auth){
                   var expires = 24 * 3600 * 1000; //1 day
-                   req.session.cookie.expires = new Date(Date.now() + expires);
-                   req.session.cookie.maxAge = expires;
+                  req.session.cookie.expires = new Date(Date.now() + expires);
+                  req.session.cookie.maxAge = expires;
                   req.session.auth = auth;
                   req.session.save();
+
+                  var session = new Session();
+                  session.auth = req.session.auth;
+                  session.expires = req.session.cookie.expires;
+                  session.userid = user._id;
+
+                  session.save();
                   _res.json(req.session);
                });
             }else{
@@ -119,7 +126,13 @@ api.get('/user/', function(req,res){
     // res.json({ message : "This is not the right way. Access /api/ to see documentation"});
 });
 api.get('/session/', function(req,res){
-   res.json(req.session);
+   var auth = req.body.auth || 'null';
+   Session.findOne({ auth : auth },function(err, user){
+    if(err || !user)
+     res.json({ message : 'Erro ao mostrar sessoes ativas' });
+    res.json(user);
+   });
+   //res.json(req.session);
 });
 
 module.exports = api;

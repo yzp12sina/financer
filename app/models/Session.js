@@ -1,25 +1,26 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var UserSchema = new Schema({
-  name: {
-     type : String,
-     required : true
-  },
-  email: {
+var SessionSchema = new Schema({
+  auth: {
      type : String,
      required : true,
-     unique: true
+     unique : true
   },
-  password: {
+  expires: {
+     type : Date,
+     required : true
+  },
+  status: {
+     type : String,
+     required : true,
+     default : "Authorized"
+  },
+  userid: {
      type : String,
      required : true
   },
   created_at: {
-     type:Date,
-     default: Date.now()
-  },
-  updated_at: {
      type:Date,
      default: Date.now()
   }
@@ -27,4 +28,4 @@ var UserSchema = new Schema({
     versionKey: false // You should be aware of the outcome after set to false
 });
 
-module.exports = mongoose.model('User', UserSchema);
+module.exports = mongoose.model('Session', SessionSchema);

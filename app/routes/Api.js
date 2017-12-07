@@ -68,28 +68,26 @@ api.get('/signup', function(req,res){
 //LOGIN
 api.post('/login', function(req,res){
    var _res = res;
+   console.log(req.body);
    User.findOne({email : req.body.email}, function(err, user){
       if(user){
          bcrypt.compare(req.body.password, user.password, function(err, res) {
             if(res){
                req.session.status = 'Authorized';
                req.session.data = user;
-               var auth = (new Date()).valueOf().toString()+Math.random().toString();
-               bcrypt.hash(auth, 2).then(function(auth){
-                  var expires = 24 * 3600 * 1000; //1 day
-                  req.session.cookie.expires = new Date(Date.now() + expires);
-                  req.session.cookie.maxAge = expires;
-                  req.session.auth = auth;
-                  req.session.save();
+               var expires = 24 * 3600 * 1000; //1 day
+               req.session.cookie.expires = new Date(Date.now() + expires);
+               req.session.cookie.maxAge = expires;
+               req.session.auth = req.sessionID;
+               req.session.save();
 
-                  var session = new Session();
-                  session.auth = req.session.auth;
-                  session.expires = req.session.cookie.expires;
-                  session.userid = user._id;
+               var session = new Session();
+               session.auth = req.sessionID;
+               session.expires = req.session.cookie.expires;
+               session.userid = user._id;
 
-                  session.save();
-                  _res.json(req.session);
-               });
+               session.save();
+               _res.json(session);
             }else{
                req.session = undefined;
                _res.json({ status : 401, message : "Password doesn't match" });
@@ -127,7 +125,7 @@ api.get('/user/', function(req,res){
 api.get('/session/', function(req,res){
    var auth = req.query.auth;
    Session.findOne({auth:auth},function(err, user){
-    res.json(user);     
+    res.json(user);
    });
    // res.json(req.session);
 });

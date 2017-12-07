@@ -95,6 +95,20 @@ html, html body {
         html form div.field input[type="text"]:focus, html form div.field input[type="password"]:focus, html form div.field input[type="email"]:focus {
           outline: none;
           border: 1px solid #694A80; }
+    html form div.field .status {
+      font-size: 13px;
+      font-weight: 300;
+      padding: 10px;
+      width: 100%;
+      text-align: left;
+      margin: 5px 0;
+      border-radius: 2.5px; }
+      html form div.field .status--error {
+        background-color: #D95252;
+        color: #F1F1F2; }
+      html form div.field .status--success {
+        background-color: #98C632;
+        color: #F1F1F2; }
 
 div.content {
   padding: 0.5em;

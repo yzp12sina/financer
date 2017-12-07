@@ -26,10 +26,7 @@ Finance.Utils = {
 			url : config.url,
 			contentType : config.contentType || 'application/json',
 			data : config.data || undefined,
-			success : config.success || undefined,
-			error : () => {
-				console.log(url + ' error with request');
-			}
+			callback : config.callback || undefined,
 		};
 		let ajax = new XMLHttpRequest();
 		let ajaxResponse;
@@ -38,8 +35,8 @@ Finance.Utils = {
 		ajax.setRequestHeader('Content-Type', options.contentType);
 		ajax.onload = () => {
 		    if (ajax.status === 200) {
-		        ajaxResponse = JSON.parse(ajax.responseText);
-				  options.success(ajaxResponse)
+		        ajaxResponse = JSON.parse(ajax);
+				  options.callback(ajaxResponse)
 		    }
 		}
 		if(options.data)
@@ -47,21 +44,5 @@ Finance.Utils = {
 	}
 }
 document.addEventListener("DOMContentLoaded", event => {
-	let data = {
-		method : 'POST',
-		url : 'api/login/',
-		data : { login: 'willians.echart@gmail.com', password: '123' },
-		success : data => {
-			console.log(data);
-		}
-	}
 	Finance.App.init();
-	Finance.Utils.request(data);
-	// console.log('GRÊMIO CAMPEÃO MUNDIAL 2017');
-	// console.log(response);
 });
-
-// let z = data => {
-// 	console.log('GRÊMIO CAMPEÃO DA LIBERTADORES 2017');
-// 	console.log(data);
-// }

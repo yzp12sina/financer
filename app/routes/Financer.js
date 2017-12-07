@@ -16,7 +16,9 @@ financer.get('/', function (req, res) {
 });
 
 financer.get('/app', function (req, res) {
-  res.render('app.html',{test:[]});
+   if(req.session.status=='Authorized')
+      res.render('app.html',{test:[]});
+   else res.redirect('/');
 });
 
 // app.use('/',financer);
